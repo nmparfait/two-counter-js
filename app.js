@@ -18,13 +18,20 @@ function counter(element, value) {
   this.increaseBtn = element.querySelector('.increase');
   this.valueDOM = element.querySelector('.value');
   this.valueDOM.textContent = this.value;
-  //console.log(this.decreaseBtn);
-  //console.log(this.valueDOM);
+
+  // bind this to all function
+  this.increase = this.increase.bind(this);
+  this.decrease = this.decrease.bind(this);
+  this.reset = this.reset.bind(this);
+
+  this.increaseBtn.addEventListener('click', this.increase);
+  this.decreaseBtn.addEventListener('click', this.decrease);
+  this.resetBtn.addEventListener('click', this.reset);
 }
 
 //adding more options to our object
 counter.prototype.increase = function () {
-  console.log(this);
+  //console.log(this);
   this.value++;
   this.valueDOM.textContent = this.value;
 };

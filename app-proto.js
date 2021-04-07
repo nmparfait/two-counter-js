@@ -10,6 +10,10 @@ function getElement(selection) {
   }
 }
 
+//using getElement
+const firstCounter = new counter(getElement('.first-counter'), 100);
+const secondCounter = new counter(getElement('.second-counter'), 200);
+
 function counter(element, value) {
   this.element = element;
   this.value = value;
@@ -46,6 +50,3 @@ counter.prototype.reset = function () {
   this.value = 0;
   this.valueDOM.textContent = this.value;
 };
-
-const firstCounter = new counter(getElement('.first-counter'), 100);
-const secondCounter = new counter(getElement('.second-counter'), 200);
